@@ -1,0 +1,47 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">{{ currentQuestionId ? "Update Question" : "Add Question" }}</h5></div>
+            <div class="card-body">
+                <form [formGroup]="questionForm">
+                    <div class="mb-3">
+                        <label for="text">Question Name</label>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="text" 
+                            formControlName="text" class="form-control" 
+                            placeholder="Question Name"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="examId">Exam Name</label>
+                        <div class="form-group">
+                            <select class="form-select" aria-label="Default select example" formControlName="examId">
+                                <option *ngFor="let exam of exams" [ngValue]="exam.id">{{exam.title}}</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="score">Question Score</label>
+                        <div class="form-group">
+                            <input type="number" 
+                            id="score" 
+                            formControlName="score" class="form-control" 
+                            placeholder="Question Score"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button
+                class="btn btn-fill btn-success"
+                (click)="currentQuestionId ? update() : add()"
+              >
+                {{ currentQuestionId ? "Update" : "Add" }}
+              </button>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

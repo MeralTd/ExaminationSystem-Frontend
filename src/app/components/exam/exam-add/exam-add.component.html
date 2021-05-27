@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">{{ currentExamId ? "Update Exam" : "Add Exam" }}</h5></div>
+            <div class="card-body">
+                <form [formGroup]="examForm">
+                    <div class="mb-3">
+                        <label for="title">Exam Name</label>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="title" 
+                            formControlName="title" class="form-control" 
+                            placeholder="Exam Name"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button
+                class="btn btn-fill btn-success"
+                (click)="currentExamId ? update() : add()"
+              >
+                {{ currentExamId ? "Update" : "Add" }}
+              </button>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

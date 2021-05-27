@@ -1,0 +1,18 @@
+<div class="wrapper bg-white rounded">
+    <div *ngFor="let question of questions" class="content">
+      <p class="text-justify h5 pb-2 font-weight-bold">
+        {{question.text}}  
+        <button type="button" class="btn btn-dark" routerLink="/exams/question/choice/add/{{question.id}}">
+          +
+        </button>
+      </p>
+      <div *ngFor="let choice of choices" class="options py-3">
+        <label *ngIf="question.id == choice.questionId" class="rounded p-2 option">
+         {{choice.text}} 
+         <input type="radio" name="radio" />
+          <span [class]="getCurrentChoiceClass(choice)"></span>
+        </label>
+      </div>
+    </div>
+    <input routerLink="/exams/question/add" type="submit" value="Add Question" class="mx-sm-0 mx-1" />
+</div>

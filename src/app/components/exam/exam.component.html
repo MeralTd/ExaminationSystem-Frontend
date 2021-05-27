@@ -1,0 +1,12 @@
+<br><br>
+<div class="row">
+    <div *ngFor="let exam of exams | searchExam:filterText" class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{exam.title}}</h5>
+          <button *ngIf="isAuthenticated()" routerLink="/exams/detail/{{exam.id}}" type="button" class="btn btn-primary">Detail</button>{{" "}}
+          <button *ngIf="isAuthenticated()" routerLink="/exams/update/{{exam.id}}" type="button" class="btn btn-warning">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
